@@ -59,6 +59,14 @@ const getCourseTerm = course => (
     course.id.slice(1, 4)
   );
 
+  const getCourseMeetingData = course => {
+    const meets = prompt('Enter meeting data: MTuWThF hh:mm-hh:mm', course.meets);
+    const valid = !meets || timeParts(meets).days;
+    if (valid) return meets;
+    alert('Invalid meeting data');
+    return null;
+  };
+
   export {
     hasConflict,
     addScheduleTimes,
@@ -68,5 +76,6 @@ const getCourseTerm = course => (
     meetsPat,
     toggle,
     timeParts,
+    getCourseMeetingData,
   };
       
